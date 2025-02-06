@@ -60,9 +60,11 @@ class CustomTabBar extends StatelessWidget {
             screenType==ScreenType.desktop ?  Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TabButton(title: "Home",screenType: screenType,onTap: (){},),
-                const SizedBox(width: 15,),
                 TabButton(title: "About Me",screenType: screenType,onTap: (){},),
+                const SizedBox(width: 15,),
+                TabButton(title: "Services",screenType: screenType,onTap: (){
+                  scrollToContainer(servicesSectionKey);
+                },),
                 const SizedBox(width: 15,),
                 TabButton(title: "Projects",screenType: screenType,onTap: (){},),
                 const SizedBox(width: 15,),
@@ -78,13 +80,13 @@ class CustomTabBar extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TabButton(showBackContainer: true,title: Images.linkedin,isImage: true,height: screenType==ScreenType.desktop?22:16,screenType: screenType,onTap: (){
+                    TabButton(showBackContainer: true,title: Images.linkedin,isImage: true,height: screenType==ScreenType.mobile?16:22,screenType: screenType,onTap: (){
                       _launchLinkedInProfile();
                     },),
-                    TabButton(showBackContainer: true,title: Images.instagram,isImage: true,height: screenType==ScreenType.desktop?22:16,screenType: screenType,onTap: (){
+                    TabButton(showBackContainer: true,title: Images.instagram,isImage: true,height: screenType==ScreenType.mobile?16:22,screenType: screenType,onTap: (){
                       _launchInstagramProfile();
                     },),
-                    TabButton(showBackContainer: true,title: Images.facebook,isImage: true,height: screenType==ScreenType.desktop?22:16,screenType: screenType,onTap: (){
+                    TabButton(showBackContainer: true,title: Images.facebook,isImage: true,height: screenType==ScreenType.mobile?16:22,screenType: screenType,onTap: (){
                       _launchFacebookProfile();
                     },),
                   ],
@@ -94,7 +96,7 @@ class CustomTabBar extends StatelessWidget {
                   showBackContainer: true,
                   title: Images.drawer,
                   isImage: true,
-                  height: screenType == ScreenType.desktop ? 22 : 16,
+                  height: screenType == ScreenType.mobile?16:22,
                   screenType: screenType,
                   onTap: () {
                     print("Tap called");

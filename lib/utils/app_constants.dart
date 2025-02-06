@@ -2,6 +2,7 @@ class AppConstants{
 
  static String appCurrency = 'SAR';
  static String fontFamily = 'Poppins';
+ static String secondFontFamily = 'Quicksand';
  static String baseUrl = 'https://doorsecommerce.com';
  static String registerUrl = '$baseUrl/api/register';
  static String loginUrl = '$baseUrl/api/login';

@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
 import 'app_routes.dart';
+
+
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+final ScrollController homeScrollController = ScrollController();
+
+final GlobalKey servicesSectionKey = GlobalKey();
+final GlobalKey container2Key = GlobalKey();
+final GlobalKey container3Key = GlobalKey();
+
+void scrollToContainer(GlobalKey key) {
+  final context = key.currentContext;
+  if (context != null) {
+    Scrollable.ensureVisible(
+      context,
+      duration: const Duration(seconds: 1),
+      curve: Curves.fastOutSlowIn,
+    );
+  }
+}
+
 
 class NavigationService {
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
