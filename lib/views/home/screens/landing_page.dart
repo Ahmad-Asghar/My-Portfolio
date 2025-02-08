@@ -27,7 +27,10 @@ class LandingPage extends StatelessWidget {
               children: [
                 TabButton(title: "About Me",screenType: customScreenType,onTap: (){},showBackContainer: true,),
                 const SizedBox(height: 15,),
-                TabButton(title: "Services",screenType: customScreenType,onTap: (){},showBackContainer: true),
+                TabButton(title: "Services",screenType: customScreenType,onTap: (){
+                  scaffoldKey.currentState?.closeEndDrawer();
+                  scrollToContainer(servicesSectionKey);
+                },showBackContainer: true),
                 const SizedBox(height: 15,),
                 TabButton(title: "Projects",screenType: customScreenType,onTap: (){},showBackContainer: true),
                 const SizedBox(height: 15,),

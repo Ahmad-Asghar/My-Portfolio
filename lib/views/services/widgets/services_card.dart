@@ -55,7 +55,7 @@ class _ServicesCardState extends State<ServicesCard> {
                             topRight: Radius.circular(isHovered?5:0),
                             topLeft: Radius.circular(isHovered?5:0),
                           ),
-                          color: AppColors.primaryColor,
+                          color: AppColors.white,
                         ),
                         height:isHovered?constraints.maxHeight: constraints.maxHeight * 0.05,
                       ),
@@ -68,21 +68,25 @@ class _ServicesCardState extends State<ServicesCard> {
                         Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-
-                            color: isHovered?AppColors.backgroundColor: AppColors.primaryColor,
+                            color: isHovered?AppColors.primaryColor: AppColors.primaryColor,
                           ),
-                          height: 70,
-                          width: 70,
+                          height:
+                          widget.screenType==ScreenType.desktop?70:
+                          widget.screenType==ScreenType.tablet?60:50,
+                          width:
+                          widget.screenType==ScreenType.desktop?70:
+                          widget.screenType==ScreenType.tablet?60:50,
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: Image.asset(widget.imageIcon, color: isHovered?AppColors.primaryColor: AppColors.backgroundColor),
+                            child: Image.asset(widget.imageIcon, color: isHovered?AppColors.white: AppColors.backgroundColor),
                           ),
                         ),
                         const SizedBox(height: 8),
                         CustomTextWidget(
                             title: widget.title,
-                            color: isHovered?AppColors.backgroundColor: AppColors.white,
-                            fontSize: 16),
+                            color: isHovered?AppColors.primaryColor: AppColors.white,
+                            fontSize: 16
+                        ),
                         const SizedBox(height: 8),
                         Expanded(
                           child: CustomTextWidget(
