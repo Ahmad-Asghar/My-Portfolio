@@ -19,8 +19,8 @@ class _ServicesCardState extends State<ServicesCard> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        print("Container Height: ${constraints.maxHeight}");
-        print("Min Height: ${constraints.minHeight}");
+        // print("Container Height: ${constraints.maxHeight}");
+        // print("Min Height: ${constraints.minHeight}");
         return MouseRegion(
           onEnter: (_) => setState(() => isHovered = true),
           onExit: (_) => setState(() => isHovered = false),
@@ -94,7 +94,9 @@ class _ServicesCardState extends State<ServicesCard> {
                             textAlign: TextAlign.center,
                             title: widget.subtitle,
                             color: isHovered?AppColors.backgroundColor: AppColors.white,
-                            fontSize: 14,
+                            fontSize:
+                            widget.screenType==ScreenType.desktop?14:
+                            widget.screenType==ScreenType.tablet?13:12,
                             fontWeight: FontWeight.bold,
                             fontFamily: AppConstants.secondFontFamily,
                           ),

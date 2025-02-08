@@ -5,5 +5,9 @@ class Images{
   static String linkedin ='assets/images/linkedin.png';
   static String instagram ='assets/images/instagram.png';
   static String drawer ='assets/images/drawer.png';
+  static String flutter ='assets/images/flutter.png';
+  static String android ='assets/images/android.png';
+  static String ios ='assets/images/apple.png';
+  static String web ='assets/images/web.png';
 
 }
