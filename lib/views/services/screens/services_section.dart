@@ -2,6 +2,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:my_portfolio/utils/app_exports.dart';
 import 'package:my_portfolio/views/services/widgets/services_card.dart';
 
+import '../model/service_model.dart';
+
 class ServicesSection extends StatelessWidget {
   final ScreenType screenType;
   const ServicesSection({super.key, required this.screenType});
@@ -30,7 +32,7 @@ class ServicesSection extends StatelessWidget {
           screenType==ScreenType.desktop? Expanded(
             child: GridView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                itemCount: 4,
+                itemCount: ServiceModel.services.length,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,  // Ensure it doesn't overflow the container
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -41,10 +43,13 @@ class ServicesSection extends StatelessWidget {
                   // screenType == ScreenType.tablet ? 1.8 : 3,
                 ),
                 itemBuilder: (BuildContext context, index) {
+
+                final service = ServiceModel.services[index];
                   return ServicesCard(
-                      title: "Android Development",
-                      subtitle: 'Android development as a service (ADaaS) provides businesses with expert mobile app development, maintenance, and optimization. It includes UI/UX design, API integration, security, and performance enhancements. With ADaaS, companies get scalable, high-quality Android apps tailored to their needs, ensuring seamless user experiences and ongoing support for long-term success.',
-                      imageIcon: Images.logo, screenType: screenType, onTap: (){}
+                      title: service.serviceName,
+                      subtitle: service.serviceDescription,
+                      imageIcon:service.serviceLogo,
+                      screenType: screenType, onTap: (){}
                   );
                 }
             ),
@@ -52,7 +57,7 @@ class ServicesSection extends StatelessWidget {
           screenType==ScreenType.tablet? Expanded(
             child: GridView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                itemCount: 4,
+                itemCount: ServiceModel.services.length,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,  // Ensure it doesn't overflow the container
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -64,25 +69,29 @@ class ServicesSection extends StatelessWidget {
                   // screenType == ScreenType.tablet ? 1.8 : 3,
                 ),
                 itemBuilder: (BuildContext context, index) {
+                  final service = ServiceModel.services[index];
                   return ServicesCard(
-                      title: "Android Development",
-                      subtitle: 'Android development as a service (ADaaS) provides businesses with expert mobile app development, maintenance, and optimization. It includes UI/UX design, API integration, security, and performance enhancements. With ADaaS, companies get scalable, high-quality Android apps tailored to their needs, ensuring seamless user experiences and ongoing support for long-term success.',
-                      imageIcon: Images.logo, screenType: screenType, onTap: (){}
+                      title: service.serviceName,
+                      subtitle: service.serviceDescription,
+                      imageIcon:service.serviceLogo,
+                      screenType: screenType, onTap: (){}
                   );
                 }
             ),
           ):
               Column(
-                children: List.generate(3, (index){
+                children: List.generate(ServiceModel.services.length, (index){
+                  final service = ServiceModel.services[index];
                   return Container(
                     margin: const EdgeInsets.all(10),
                     height: 30.h,
                     width: 80.w,
                    child: ServicesCard(
-                       title: "Android Development",
-                       subtitle: 'Android development as a service (ADaaS) provides businesses with expert mobile app development, maintenance, and optimization. It includes UI/UX design, API integration, security, and performance enhancements. With ADaaS, companies get scalable, high-quality Android apps tailored to their needs, ensuring seamless user experiences and ongoing support for long-term success.',
-                       imageIcon: Images.logo, screenType: screenType, onTap: (){}
-                   )
+                      title: service.serviceName,
+                      subtitle: service.serviceDescription,
+                      imageIcon:service.serviceLogo,
+                      screenType: screenType, onTap: (){}
+                  )
                   );
                 }),
               )

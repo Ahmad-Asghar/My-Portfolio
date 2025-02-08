@@ -44,7 +44,7 @@ class CustomTextWidget extends StatelessWidget {
       style: TextStyle(wordSpacing: 0,
         letterSpacing: letterSpacing,
         height: height,
-        decorationColor: decorationColor?? AppColors.settingInterestsColor,
+        decorationColor: decorationColor?? AppColors.greyTextColor,
           fontFamily: fontFamily?? AppConstants.fontFamily,
           decoration: textDecoration,
           color: color,

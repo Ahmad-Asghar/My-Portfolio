@@ -68,7 +68,9 @@ class CustomTabBar extends StatelessWidget {
                 const SizedBox(width: 15,),
                 TabButton(title: "Projects",screenType: screenType,onTap: (){},),
                 const SizedBox(width: 15,),
-                TabButton(title: "Contact",screenType: screenType,onTap: (){},),
+                TabButton(title: "Contact",screenType: screenType,onTap: (){
+                  scrollToContainer(contactSectionKey);
+                },),
               ],
             ):
             // screenType==ScreenType.tablet?

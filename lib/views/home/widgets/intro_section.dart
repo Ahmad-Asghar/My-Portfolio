@@ -233,19 +233,3 @@ class MobileIntroSection extends StatelessWidget {
 
 
 
-class ShadowPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint shadowPaint = Paint()
-      ..color = Colors.black.withOpacity(0.3) // Shadow color
-      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 10); // Blur effect
-
-    // Draw shadow only on the visible image area
-    final Path shadowPath = Path();
-    shadowPath.addOval(Rect.fromLTWH(0, 0, size.width, size.height));
-    canvas.drawPath(shadowPath, shadowPaint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
