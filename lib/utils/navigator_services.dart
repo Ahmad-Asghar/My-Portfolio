@@ -7,7 +7,7 @@ final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 final ScrollController homeScrollController = ScrollController();
 
 final GlobalKey servicesSectionKey = GlobalKey();
-final GlobalKey container2Key = GlobalKey();
+final GlobalKey contactSectionKey = GlobalKey();
 final GlobalKey container3Key = GlobalKey();
 
 void scrollToContainer(GlobalKey key) {

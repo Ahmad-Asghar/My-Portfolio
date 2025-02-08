@@ -40,30 +40,31 @@ class CustomTextField extends StatelessWidget {
       children: [
         title != null
             ? Padding(
-                padding: EdgeInsets.only(bottom: 1.h),
+                padding: const EdgeInsets.only(bottom: 4),
                 child: CustomTextWidget(
                     title: title.toString(),
-                    fontSize: 16.5.sp,
-                    fontWeight: FontWeight.w600),
+                    fontSize: 12,
+                ),
               )
             : const SizedBox(),
         Container(
-          height: 6.h,
+          height: maxLines!=null? maxLines!*17 : 33,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
               color: borderColor??Colors.transparent,
               width: borderColor!=null?1:0
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(elevation??0.35),
-                spreadRadius: 3,
-                blurRadius: 4,
-              ),
-            ],
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey.withOpacity(elevation??0.35),
+            //     spreadRadius: 3,
+            //     blurRadius: 4,
+            //   ),
+            // ],
           ),
           child: TextFormField(
+            maxLines: maxLines,
             controller: controller,
             onChanged: onChanged,
             keyboardType: textInputType,
@@ -73,30 +74,34 @@ class CustomTextField extends StatelessWidget {
             obscureText: obSecureText??false,
             style: TextStyle(
                 fontFamily: 'Poppins',
-                fontSize: 17.sp,
-                color: AppColors.fieldTextColor),
+                fontSize: 12,
+                color: AppColors.fieldTextColor
+            ),
             decoration: InputDecoration(
                 filled: true,
-                fillColor: AppColors.white,
-                contentPadding: EdgeInsets.symmetric(horizontal: 6.w),
+                fillColor: AppColors.textFieldColor,
+                contentPadding:  EdgeInsets.symmetric(horizontal: 15,vertical: maxLines!=null?15:0),
                 hintText: hintText,
                 hintStyle: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 16.5.sp, color: AppColors.greyTextColor),
+                    fontSize: 12,
+                    color: AppColors.greyTextColor,
+                  fontWeight: FontWeight.w400
+                ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
                     color: AppColors.white,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
                     color: AppColors.white,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
                     color: AppColors.white,
                   ),
@@ -174,6 +179,7 @@ class CustomSecondaryTextField extends StatelessWidget {
                 color: AppColors.fieldTextColor,
               ),
               decoration: InputDecoration(
+                hintMaxLines: 1,
                 contentPadding: EdgeInsets.only(left: 4.w,right: 6.w,bottom: 2.h),
                 hintText: hintText,
                 hintStyle: TextStyle(

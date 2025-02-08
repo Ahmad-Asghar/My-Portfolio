@@ -9,5 +9,8 @@ class Images{
   static String android ='assets/images/android.png';
   static String ios ='assets/images/apple.png';
   static String web ='assets/images/web.png';
+  static String email ='assets/images/email.png';
+  static String phone ='assets/images/phone.png';
+  static String whatsapp ='assets/images/whatsapp.png';
 
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/common/widgets/app_text.dart';
 import 'package:my_portfolio/utils/app_colors.dart';
 import 'package:my_portfolio/utils/navigator_services.dart';
+import 'package:my_portfolio/views/contact_me/screens/contact_section.dart';
 import 'package:my_portfolio/views/home/widgets/tab_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../utils/screen_utils.dart';
@@ -34,7 +35,10 @@ class LandingPage extends StatelessWidget {
                 const SizedBox(height: 15,),
                 TabButton(title: "Projects",screenType: customScreenType,onTap: (){},showBackContainer: true),
                 const SizedBox(height: 15,),
-                TabButton(title: "Contact",screenType: customScreenType,onTap: (){},showBackContainer: true),
+                TabButton(title: "Contact",screenType: customScreenType,onTap: (){
+                  scaffoldKey.currentState?.closeEndDrawer();
+                  scrollToContainer(contactSectionKey);
+                },showBackContainer: true),
               ],
             ),
           ),
@@ -44,6 +48,7 @@ class LandingPage extends StatelessWidget {
               children: [
                 HeroSection(screenType: customScreenType),
                 ServicesSection(screenType: customScreenType),
+                ContactSection(screenType: customScreenType),
               ],
             ),
           ),
