@@ -18,7 +18,7 @@ class ServicesSection extends StatelessWidget {
       ),
       key: servicesSectionKey,
       color: AppColors.backgroundColor,
-      height: screenType==ScreenType.mobile?null: 100.h,
+      //height: screenType==ScreenType.mobile?null: 100.h,
       width: 100.w,
       child: Column(
         children: [
@@ -29,57 +29,53 @@ class ServicesSection extends StatelessWidget {
             screenType == ScreenType.tablet ? 22 : 19,
           ),
           SizedBox(height: 4.h),
-          screenType==ScreenType.desktop? Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                itemCount: ServiceModel.services.length,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,  // Ensure it doesn't overflow the container
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 2.w,
-                  mainAxisSpacing: 2.w,
-                   childAspectRatio:  1.5,
-                  // screenType == ScreenType.tablet ? 1.8 : 3,
-                ),
-                itemBuilder: (BuildContext context, index) {
+          screenType==ScreenType.desktop? GridView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              itemCount: ServiceModel.services.length,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,  // Ensure it doesn't overflow the container
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 2.w,
+                mainAxisSpacing: 2.w,
+                 childAspectRatio:  1.5,
+                // screenType == ScreenType.tablet ? 1.8 : 3,
+              ),
+              itemBuilder: (BuildContext context, index) {
 
+              final service = ServiceModel.services[index];
+                return ServicesCard(
+                    title: service.serviceName,
+                    subtitle: service.serviceDescription,
+                    imageIcon:service.serviceLogo,
+                    screenType: screenType, onTap: (){}
+                );
+              }
+          ):
+          screenType==ScreenType.tablet? GridView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              itemCount: ServiceModel.services.length,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,  // Ensure it doesn't overflow the container
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 2.w,
+                mainAxisSpacing: 2.w,
+                childAspectRatio: 1.6
+                // childAspectRatio: screenType == ScreenType.desktop ? 1.5 :
+                // screenType == ScreenType.tablet ? 1.8 : 3,
+              ),
+              itemBuilder: (BuildContext context, index) {
                 final service = ServiceModel.services[index];
-                  return ServicesCard(
-                      title: service.serviceName,
-                      subtitle: service.serviceDescription,
-                      imageIcon:service.serviceLogo,
-                      screenType: screenType, onTap: (){}
-                  );
-                }
-            ),
+                return ServicesCard(
+                    title: service.serviceName,
+                    subtitle: service.serviceDescription,
+                    imageIcon:service.serviceLogo,
+                    screenType: screenType, onTap: (){}
+                );
+              }
           ):
-          screenType==ScreenType.tablet? Expanded(
-            child: GridView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                itemCount: ServiceModel.services.length,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,  // Ensure it doesn't overflow the container
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 2.w,
-                  mainAxisSpacing: 2.w,
-                  childAspectRatio: 1.6
-                  // childAspectRatio: screenType == ScreenType.desktop ? 1.5 :
-                  // screenType == ScreenType.tablet ? 1.8 : 3,
-                ),
-                itemBuilder: (BuildContext context, index) {
-                  final service = ServiceModel.services[index];
-                  return ServicesCard(
-                      title: service.serviceName,
-                      subtitle: service.serviceDescription,
-                      imageIcon:service.serviceLogo,
-                      screenType: screenType, onTap: (){}
-                  );
-                }
-            ),
-          ):
-              Column(
+          Column(
                 children: List.generate(ServiceModel.services.length, (index){
                   final service = ServiceModel.services[index];
                   return Container(
