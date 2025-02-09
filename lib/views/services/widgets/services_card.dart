@@ -77,7 +77,7 @@ class _ServicesCardState extends State<ServicesCard> {
                           widget.screenType==ScreenType.desktop?70:
                           widget.screenType==ScreenType.tablet?60:50,
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(14.0),
                             child: Image.asset(widget.imageIcon, color: isHovered?AppColors.white: AppColors.backgroundColor),
                           ),
                         ),
@@ -90,7 +90,7 @@ class _ServicesCardState extends State<ServicesCard> {
                         const SizedBox(height: 8),
                         Expanded(
                           child: CustomTextWidget(
-                            maxLines: 4,
+                            maxLines: widget.screenType==ScreenType.mobile?null: 4,
                             textAlign: TextAlign.center,
                             title: widget.subtitle,
                             color: isHovered?AppColors.backgroundColor: AppColors.white,

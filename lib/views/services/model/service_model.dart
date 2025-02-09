@@ -30,7 +30,17 @@ class ServiceModel{
       serviceDescription: 'Design and develop responsive, high-performance websites and web applications using modern frameworks like React, Angular, and Vue.js. Optimize for speed, scalability, and user engagement.',
       serviceLogo: Images.web,
     ),
-  ];
+    ServiceModel(
+      serviceName: 'Debugging',
+      serviceDescription: 'Identify and fix runtime errors, performance issues, and crashes in Flutter apps to ensure smooth and efficient execution.',
+      serviceLogo: Images.debug,
+    ),
+    ServiceModel(
+      serviceName: 'Deploy & Launch',
+      serviceDescription: 'Prepare, build, and release Flutter apps to Play Store, App Store, or web with optimized performance and best practices.',
+      serviceLogo: Images.launch,
+    ),
 
+  ];
 
 }

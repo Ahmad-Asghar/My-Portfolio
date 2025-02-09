@@ -24,7 +24,7 @@ class _HoverListTileState extends State<HoverListTile> {
       msg: text,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
-      backgroundColor: Colors.black54,
+      backgroundColor: Colors.blueAccent,
       textColor: Colors.white,
       fontSize: 14.0,
     );
