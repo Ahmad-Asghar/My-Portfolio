@@ -23,7 +23,7 @@ class AppColors{
   static Color settingLocationColor =const Color(0xffd9d9d9);
   static Color orangeColor =const Color(0xfffd5c39);
   static Color blueColor =const Color(0xff399ffd);
-  static Color settingTermsColor =const Color(0xffe239fd);
+  static Color settingTermsColor =const Color(0xfffdd439);
 
 
 
