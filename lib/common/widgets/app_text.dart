@@ -51,7 +51,6 @@ class CustomTextWidget extends StatelessWidget {
           fontSize: fontSize?? 12.sp,
           fontWeight: fontWeight,
           shadows: shadows,
-
       ),
     );
   }
