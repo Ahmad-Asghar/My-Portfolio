@@ -13,7 +13,7 @@ class AppColors{
   static Color firebaseColor =const Color(0xffffc400);
   static Color githubColor =const Color(0xfff4511e);
   static Color jiraColor =const Color(0xff2482fd);
-  static Color bitBucketColor =const Color(0xff0052cc);
+  static Color bitBucketColor =const Color(0xff2482fd);
 
 
 
