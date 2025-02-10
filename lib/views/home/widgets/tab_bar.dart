@@ -60,7 +60,10 @@ class CustomTabBar extends StatelessWidget {
             screenType==ScreenType.desktop ?  Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TabButton(title: "About Me",screenType: screenType,onTap: (){},),
+                TabButton(title: "About Me",screenType: screenType,onTap: (){
+                  scrollToContainer(aboutMeSectionKey);
+                },
+                ),
                 const SizedBox(width: 15,),
                 TabButton(title: "Services",screenType: screenType,onTap: (){
                   scrollToContainer(servicesSectionKey);

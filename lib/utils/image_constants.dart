@@ -14,5 +14,12 @@ class Images{
   static String whatsapp ='assets/images/whatsapp.png';
   static String debug ='assets/images/debug.png';
   static String launch ='assets/images/launch.png';
+  static String flutterSvg ='assets/images/flutter_svg.svg';
+  static String androidSvg ='assets/images/android_svg.svg';
+  static String appleSvg ='assets/images/apple_svg.svg';
+  static String bitbucketSvg ='assets/images/bitbucket_svg.svg';
+  static String firebaseSvg ='assets/images/firebase_svg.svg';
+  static String gitSvg ='assets/images/git_svg.svg';
+  static String jiraSvg ='assets/images/jira_svg.svg';
 
 }

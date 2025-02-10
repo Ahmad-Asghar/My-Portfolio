@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/common/widgets/app_text.dart';
 import 'package:my_portfolio/utils/app_colors.dart';
 import 'package:my_portfolio/utils/navigator_services.dart';
+import 'package:my_portfolio/views/about_me/screens/about_me_section.dart';
 import 'package:my_portfolio/views/contact_me/screens/contact_section.dart';
 import 'package:my_portfolio/views/home/widgets/tab_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -26,7 +27,10 @@ class LandingPage extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
               children: [
-                TabButton(title: "About Me",screenType: customScreenType,onTap: (){},showBackContainer: true,),
+                TabButton(title: "About Me",screenType: customScreenType,onTap: (){
+                  scaffoldKey.currentState?.closeEndDrawer();
+                  scrollToContainer(aboutMeSectionKey);
+                },showBackContainer: true,),
                 const SizedBox(height: 15,),
                 TabButton(title: "Services",screenType: customScreenType,onTap: (){
                   scaffoldKey.currentState?.closeEndDrawer();
@@ -47,6 +51,7 @@ class LandingPage extends StatelessWidget {
             child: Column(
               children: [
                 HeroSection(screenType: customScreenType),
+                AboutMeSection(screenType: customScreenType),
                 ServicesSection(screenType: customScreenType),
                 ContactSection(screenType: customScreenType),
               ],

@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 class AppColors{
 
-  static Color primaryColor = Color(0xff9d83b9);
-  static Color backgroundColor = Color(0xff212025);
-  static Color textFieldColor = Color(0xfffafafa);
+  static Color primaryColor = const Color(0xff9d83b9);
+  static Color backgroundColor = const Color(0xff212025);
+  static Color textFieldColor = const Color(0xfffafafa);
   static Color greyTextColor =const Color(0xffc3c3c3);
-  static Color greyIconColor =const Color(0xffb0b0b0);
   static Color greySettingsColor =const Color(0xff787878);
   static Color fieldTextColor =const Color(0xff524b6b);
-  static Color greyTabColor =const Color(0xffd3d3d3);
-  static Color greenColor =const Color(0xff106f01);
-  static Color greyLogoutColor =const Color(0xfff2f2f2);
+  static Color flutterColor =const Color(0xff5ec8f8);
+  static Color androidColor =const Color(0xff7cb342);
+  static Color firebaseColor =const Color(0xffffc400);
+  static Color githubColor =const Color(0xfff4511e);
+  static Color jiraColor =const Color(0xff2482fd);
+  static Color bitBucketColor =const Color(0xff0052cc);
 
 
 
