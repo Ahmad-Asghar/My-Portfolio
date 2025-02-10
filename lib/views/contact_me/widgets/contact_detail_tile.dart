@@ -1,6 +1,8 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_portfolio/utils/app_exports.dart';
 
+import '../../../utils/user_pref_utils.dart';
+
 
 class HoverListTile extends StatefulWidget {
   final String title;
@@ -18,16 +20,7 @@ class _HoverListTileState extends State<HoverListTile> {
 
   void copyToClipboard(String text) {
     Clipboard.setData(ClipboardData(text: text));
-    Fluttertoast.showToast(
-      webPosition: 'center',
-      webBgColor: "linear-gradient(to right, #9d83b9, #212025)",
-      msg: text,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      backgroundColor: Colors.blueAccent,
-      textColor: Colors.white,
-      fontSize: 14.0,
-    );
+    showToast(text);
   }
 
   @override

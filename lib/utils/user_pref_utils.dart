@@ -1,4 +1,22 @@
 
+
+import 'package:fluttertoast/fluttertoast.dart';
+
+import 'app_exports.dart';
+
+showToast(String message){
+  Fluttertoast.showToast(
+    webPosition: 'center',
+    webBgColor: "linear-gradient(to right, #fd5c39, #fd5c39)",
+    msg: message,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    backgroundColor: Colors.black,
+    textColor: Colors.white,
+    fontSize: 14.0,
+  );
+}
+
 String getGreeting() {
   DateTime now = DateTime.now();
   int hour = now.hour;
