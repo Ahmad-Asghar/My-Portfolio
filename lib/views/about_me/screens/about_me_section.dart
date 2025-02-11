@@ -47,6 +47,7 @@ class AboutMeSection extends StatelessWidget {
                   skillColor: skill.skillColor,
                   iconOnLeft: index%2==0,
                   isLast: SkillModel.skills[index] == SkillModel.skills.last,
+                  index: index+1,
 
               );
             }),
