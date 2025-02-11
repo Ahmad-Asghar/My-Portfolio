@@ -13,7 +13,9 @@ class SkillTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return screenType==ScreenType.mobile?Padding(
+    return
+    screenType==ScreenType.mobile?
+    Padding(
       padding:  EdgeInsets.only(bottom: 3.h),
       child: Stack(
         children: [
@@ -34,7 +36,7 @@ class SkillTile extends StatelessWidget {
                       title: skillName,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: skillName=='iOS'?Colors.white:skillColor
+                      color: skillColor
                   ),
                 ),
 
@@ -42,7 +44,7 @@ class SkillTile extends StatelessWidget {
               const SizedBox(height: 3),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 7.w),
-                padding:  EdgeInsets.only(left:3.w,right:3.w,top: 15,bottom: 15),
+                padding:  EdgeInsets.only(left:3.w,right:3.w),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: skillColor.withOpacity(0.2)
@@ -50,30 +52,28 @@ class SkillTile extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
+                      margin:EdgeInsets.only(top: 12.w),
                       constraints: BoxConstraints(maxWidth: 10.w),
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: CustomTextWidget(
-                            textAlign: TextAlign.center,
-                            height: 0.9,
-                            fontWeight: FontWeight.bold,
-                            title: "0$index",fontSize: 45,
-                            color: skillColor
-                          ),
-                        ),
+                      child: CustomTextWidget(
+                        textAlign: TextAlign.center,
+                        height: 0.9,
+                        fontWeight: FontWeight.bold,
+                        title: "0$index",fontSize: 40,
+                        color: skillColor
                       ),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: CustomTextWidget(
-                        textAlign: TextAlign.center,
-                          title: skillDesc,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstants.secondFontFamily,
-                          color: AppColors.white
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: CustomTextWidget(
+                          textAlign: TextAlign.center,
+                            title: skillDesc,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: AppConstants.secondFontFamily,
+                            color: AppColors.white
+                        ),
                       ),
                     ),
                   ],
@@ -81,53 +81,36 @@ class SkillTile extends StatelessWidget {
               ),
             ],
           ),
-          Container(height: 25.w,width: 25.w,decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: AppColors.white,
-          ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: SvgPicture.asset(skillIcon,height: isLast?65:100),
+          Container(
+            height: 25.w,
+            width: 25.w,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.backgroundColor,
+            ),
+            child: Container(
+              height: 25.w,
+              width: 25.w,
+              decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: skillColor.withOpacity(0.2),
+            ),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: SvgPicture.asset(skillIcon,height: isLast?65:100),
+              ),
             ),
           )
         ],
-      ),
-    ):Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        if(iconOnLeft)
-        Container(
-          // color: Colors.grey,
-          constraints: BoxConstraints(
-              maxWidth: 60.w
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomTextWidget(
-                  title: skillName,
-                  fontSize: screenType==ScreenType.tablet? 30 :35,
-                  fontWeight: FontWeight.bold,
-                  color: skillColor),
-              const SizedBox(height: 5),
-              CustomTextWidget(
-                  title: skillDesc,
-                  fontSize: screenType==ScreenType.tablet? 13 :15,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: AppConstants.secondFontFamily,
-                  color: AppColors.white
-              ),
-            ],
-          ),
-        ),
-
-        CircleAvatar(
-          backgroundColor: skillColor.withOpacity(0.2),
-          radius: screenType==ScreenType.tablet? 75: 95,
-          child: Center(child: SvgPicture.asset(skillIcon,height:screenType==ScreenType.tablet? isLast? 90 : 125: isLast? 110 : 145)),
-        ),
-        if(!iconOnLeft)
-        Container(
+      )
+    ):
+    Padding(
+      padding:  EdgeInsets.only(bottom: 2.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          if(iconOnLeft)
+          Container(
             // color: Colors.grey,
             constraints: BoxConstraints(
                 maxWidth: 60.w
@@ -136,6 +119,7 @@ class SkillTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomTextWidget(
+                  height: 0.9,
                     title: skillName,
                     fontSize: screenType==ScreenType.tablet? 30 :35,
                     fontWeight: FontWeight.bold,
@@ -151,7 +135,40 @@ class SkillTile extends StatelessWidget {
               ],
             ),
           ),
-      ],
+
+          CircleAvatar(
+            backgroundColor: skillColor.withOpacity(0.2),
+            radius: screenType==ScreenType.tablet? 75: 95,
+            child: Center(child: SvgPicture.asset(skillIcon,height:screenType==ScreenType.tablet? isLast? 90 : 125: isLast? 110 : 145)),
+          ),
+          if(!iconOnLeft)
+          Container(
+              // color: Colors.grey,
+              constraints: BoxConstraints(
+                  maxWidth: 60.w
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomTextWidget(
+                      height: 0.9,
+                      title: skillName,
+                      fontSize: screenType==ScreenType.tablet? 30 :35,
+                      fontWeight: FontWeight.bold,
+                      color: skillColor),
+                  const SizedBox(height: 5),
+                  CustomTextWidget(
+                      title: skillDesc,
+                      fontSize: screenType==ScreenType.tablet? 13 :15,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: AppConstants.secondFontFamily,
+                      color: AppColors.white
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
