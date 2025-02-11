@@ -18,9 +18,10 @@ class SkillTile extends StatelessWidget {
     Padding(
       padding:  EdgeInsets.only(bottom: 3.h),
       child: Stack(
+        alignment: iconOnLeft?Alignment.topLeft: Alignment.topRight,
         children: [
           Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: iconOnLeft?CrossAxisAlignment.end:CrossAxisAlignment.start,
             children: [
               Container(
                 constraints: BoxConstraints(
@@ -28,9 +29,9 @@ class SkillTile extends StatelessWidget {
                 ),
                  // height: 7.w,
                 child: Padding(
-                  padding:  EdgeInsets.only(right: 7.w),
+                  padding:  EdgeInsets.symmetric(horizontal: 7.w),
                   child: CustomTextWidget(
-                    textAlign: TextAlign.end,
+                    textAlign: iconOnLeft? TextAlign.end:TextAlign.start,
                       maxLines: 2,
                       height: 0.9,
                       title: skillName,
@@ -51,18 +52,22 @@ class SkillTile extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Container(
-                      margin:EdgeInsets.only(top: 12.w),
-                      constraints: BoxConstraints(maxWidth: 10.w),
-                      child: CustomTextWidget(
-                        textAlign: TextAlign.center,
-                        height: 0.9,
-                        fontWeight: FontWeight.bold,
-                        title: "0$index",fontSize: 40,
-                        color: skillColor
-                      ),
+                   if(iconOnLeft) Row(
+                      children: [
+                        Container(
+                          margin:EdgeInsets.only(top: 12.w),
+                          constraints: BoxConstraints(maxWidth: 7.w),
+                          child: CustomTextWidget(
+                            textAlign: TextAlign.center,
+                            height: 0.9,
+                            fontWeight: FontWeight.bold,
+                            title: "0$index",fontSize: 40,
+                            color: skillColor
+                          ),
+                        ),
+                         SizedBox(width: 5.w),
+                      ],
                     ),
-                    const SizedBox(width: 12),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -75,6 +80,22 @@ class SkillTile extends StatelessWidget {
                             color: AppColors.white
                         ),
                       ),
+                    ),
+                    if(!iconOnLeft) Row(
+                      children: [
+                        SizedBox(width: 5.w),
+                        Container(
+                          margin:EdgeInsets.only(top: 12.w),
+                          constraints: BoxConstraints(maxWidth: 7.w),
+                          child: CustomTextWidget(
+                              textAlign: TextAlign.center,
+                              height: 0.9,
+                              fontWeight: FontWeight.bold,
+                              title: "0$index",fontSize: 40,
+                              color: skillColor
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
