@@ -155,6 +155,7 @@ class TabContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final contactProvider = Provider.of<ContactProvider>(context);
     return SizedBox(
       height: 90.h,
       width:86.w,
@@ -183,28 +184,35 @@ class TabContactSection extends StatelessWidget {
                   SizedBox(height: 1.h,),
                   Divider(color: AppColors.greySettingsColor,height: 0,),
                   SizedBox(height: 2.h,),
-                  const Row(
+                  Row(
                     children: [
-                      Expanded(child: CustomTextField(title:"First Name",hintText: "First Name")),
+                      Expanded(child: CustomTextField(title:"First Name",hintText: "First Name",controller: contactProvider.firstNameController,)),
                       SizedBox(width: 8),
-                      Expanded(child: CustomTextField(title:"Last Name",hintText: "Last Name")),
+                      Expanded(child: CustomTextField(title:"Last Name",hintText: "Last Name",controller: contactProvider.lastNameController,)),
                     ],
                   ),
                   SizedBox(height: 1.2.h,),
-                  const CustomTextField(hintText: "Email Address",title: "Email Address",),
+                  CustomTextField(hintText: "Email Address",title: "Email Address",controller: contactProvider.emailController,),
                   SizedBox(height: 1.2.h,),
-                  const CustomTextField(hintText: "Leave a message for me..",title: "Message",maxLines: 6),
+                  CustomTextField(hintText: "Leave a message for me..",title: "Message",maxLines: 6,controller: contactProvider.messageController,),
                   SizedBox(height: 1.2.h,),
-                  Center(
-                    child: CustomMainButton(
-                        color: AppColors.primaryColor,
-                        onTap: (){},
-                        child: CustomTextWidget(
-                            title: 'Send',
-                            color: AppColors.white,
-                            fontSize: 12
-                        )
-                    ),
+                  Consumer<ContactProvider>(
+                      builder: (context,contactProvider,child) {
+                        return Center(
+                          child: CustomMainButton(
+                              isLoading:contactProvider.isSendingMessage,
+                              color: AppColors.primaryColor,
+                              onTap: (){
+                                contactProvider.sendEmail();
+                              },
+                              child: CustomTextWidget(
+                                  title: 'Send',
+                                  color: AppColors.white,
+                                  fontSize: 13
+                              )
+                          ),
+                        );
+                      }
                   )
                 ],
               ),
@@ -251,6 +259,7 @@ class MobileContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final contactProvider = Provider.of<ContactProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -275,24 +284,31 @@ class MobileContactSection extends StatelessWidget {
                 SizedBox(height: 1.h,),
                 Divider(color: AppColors.greySettingsColor,height: 0,),
                 SizedBox(height: 2.h,),
-                CustomTextField(title:"First Name",hintText: "First Name"),
+                CustomTextField(title:"First Name",hintText: "First Name",controller: contactProvider.firstNameController,),
                 SizedBox(height: 1.2),
-                CustomTextField(title:"Last Name",hintText: "Last Name"),
+                CustomTextField(title:"Last Name",hintText: "Last Name",controller: contactProvider.lastNameController,),
                 SizedBox(height: 1.2.h,),
-                const CustomTextField(hintText: "Email Address",title: "Email Address",),
+                CustomTextField(hintText: "Email Address",title: "Email Address",controller: contactProvider.emailController,),
                 SizedBox(height: 1.2.h,),
-                const CustomTextField(hintText: "Leave a message for me..",title: "Message",maxLines: 6),
+                CustomTextField(hintText: "Leave a message for me..",title: "Message",maxLines: 6,controller: contactProvider.messageController,),
                 SizedBox(height: 1.2.h,),
-                Center(
-                  child: CustomMainButton(
-                      color: AppColors.primaryColor,
-                      onTap: (){},
-                      child: CustomTextWidget(
-                          title: 'Send',
-                          color: AppColors.white,
-                          fontSize: 12
-                      )
-                  ),
+                Consumer<ContactProvider>(
+                    builder: (context,contactProvider,child) {
+                      return Center(
+                        child: CustomMainButton(
+                            isLoading:contactProvider.isSendingMessage,
+                            color: AppColors.primaryColor,
+                            onTap: (){
+                              contactProvider.sendEmail();
+                            },
+                            child: CustomTextWidget(
+                                title: 'Send',
+                                color: AppColors.white,
+                                fontSize: 13
+                            )
+                        ),
+                      );
+                    }
                 )
               ],
             ),
