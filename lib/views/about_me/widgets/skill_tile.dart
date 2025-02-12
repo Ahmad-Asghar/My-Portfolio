@@ -61,11 +61,11 @@ class SkillTile extends StatelessWidget {
                             textAlign: TextAlign.center,
                             height: 0.9,
                             fontWeight: FontWeight.bold,
-                            title: "0$index",fontSize: 40,
+                            title: "0\n$index",fontSize: 40,
                             color: skillColor
                           ),
                         ),
-                         SizedBox(width: 5.w),
+                         SizedBox(width: 5.w)
                       ],
                     ),
                     Expanded(
@@ -91,7 +91,7 @@ class SkillTile extends StatelessWidget {
                               textAlign: TextAlign.center,
                               height: 0.9,
                               fontWeight: FontWeight.bold,
-                              title: "0$index",fontSize: 40,
+                              title: "0\n$index",fontSize: 40,
                               color: skillColor
                           ),
                         ),

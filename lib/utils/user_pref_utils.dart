@@ -1,7 +1,4 @@
-
-
 import 'package:fluttertoast/fluttertoast.dart';
-
 import 'app_exports.dart';
 
 showToast(String message){
@@ -13,7 +10,7 @@ showToast(String message){
     gravity: ToastGravity.BOTTOM,
     backgroundColor: Colors.black,
     textColor: Colors.white,
-    fontSize: 14.0,
+    fontSize: 14.0
   );
 }
 
