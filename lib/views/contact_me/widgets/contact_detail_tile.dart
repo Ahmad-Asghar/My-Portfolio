@@ -43,7 +43,7 @@ class _HoverListTileState extends State<HoverListTile> {
             const SizedBox(width: 10),
             Container(
               constraints: BoxConstraints(
-                  maxWidth: widget.isMobile?50.w:35.w
+                  maxWidth: widget.isMobile?40.w:30.w
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,8 @@
 import 'package:my_portfolio/utils/app_exports.dart';
 import 'package:my_portfolio/views/home/widgets/tab_bar.dart';
 
+import '../../../utils/user_pref_utils.dart';
+
 
 class HeroSection extends StatelessWidget {
   final ScreenType screenType;
@@ -40,7 +42,7 @@ class DesktopIntroSection extends StatelessWidget {
               Container(height: 100.h,width: 15.w,color: AppColors.primaryColor),
               SizedBox(
                   height: 80.h,
-                  child: Image.asset('assets/images/ahmad.png',fit: BoxFit.fitHeight,))
+                  child: Image.asset('assets/images/ahmad_or.png',fit: BoxFit.fitHeight,))
             ],
           ),
         ),
@@ -55,7 +57,7 @@ class DesktopIntroSection extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomTextWidget(title: 'Hey, I am',color: AppColors.white,fontSize: 24,),
+                    CustomTextWidget(title: 'Hey, ${getGreeting()} I am',color: AppColors.white,fontSize: 24,),
                     CustomTextWidget(
                         title: 'Ahmad\nAsghar,',
                         color: AppColors.primaryColor,
@@ -99,7 +101,7 @@ class TabIntroSection extends StatelessWidget {
               Container(height: 100.h,width: 20.w,color: AppColors.primaryColor),
               SizedBox(
                   height: 75.h,
-                  child: Image.asset('assets/images/ahmad.png',fit: BoxFit.fitHeight,))
+                  child: Image.asset('assets/images/ahmad_or.png',fit: BoxFit.fitHeight,))
             ],
           ),
         ),
@@ -114,7 +116,7 @@ class TabIntroSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 15.h,),
-                    CustomTextWidget(title: 'Hey, I am',color: AppColors.white,fontSize: 20,),
+                    CustomTextWidget(title: 'Hey, ${getGreeting()} I am',color: AppColors.white,fontSize: 20,),
                     CustomTextWidget(
                         title: 'Ahmad\nAsghar,',
                         color: AppColors.primaryColor,
@@ -159,7 +161,7 @@ class MobileIntroSection extends StatelessWidget {
                crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 12.h,),
-                CustomTextWidget(title: 'Hey, I am',color: AppColors.white,fontSize: 17,maxLines: 1,),
+                CustomTextWidget(title: 'Hey, ${getGreeting()} I am',color: AppColors.white,fontSize: 17,maxLines: 1,),
                 CustomTextWidget(
                     maxLines: 2,
                     title: 'Ahmad Asghar,',
@@ -187,7 +189,7 @@ class MobileIntroSection extends StatelessWidget {
           margin: EdgeInsets.only(top: 5.h),
             height: 70.h,
            // width: 100.w,
-            child:Image.asset('assets/images/ahmad.png',fit: BoxFit.fitHeight)
+            child:Image.asset('assets/images/ahmad_or.png',fit: BoxFit.fitHeight)
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
