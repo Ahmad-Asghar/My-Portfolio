@@ -39,7 +39,7 @@ class DesktopIntroSection extends StatelessWidget {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Container(height: 100.h,width: 15.w,color: AppColors.primaryColor),
+              Container(height: 100.h,width: 20.w,color: AppColors.primaryColor),
               SizedBox(
                   height: 80.h,
                   child: Image.asset('assets/images/ahmad_or.png',fit: BoxFit.fitHeight,))
@@ -98,7 +98,7 @@ class TabIntroSection extends StatelessWidget {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Container(height: 100.h,width: 20.w,color: AppColors.primaryColor),
+              Container(height: 100.h,width: 25.w,color: AppColors.primaryColor),
               SizedBox(
                   height: 75.h,
                   child: Image.asset('assets/images/ahmad_or.png',fit: BoxFit.fitHeight,))

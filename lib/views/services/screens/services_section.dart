@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:my_portfolio/utils/app_exports.dart';
+import 'package:my_portfolio/views/services/widgets/mobile_service_card.dart';
 import 'package:my_portfolio/views/services/widgets/services_card.dart';
 
 import '../model/service_model.dart';
@@ -79,17 +80,12 @@ class ServicesSection extends StatelessWidget {
           Column(
                 children: List.generate(ServiceModel.services.length, (index){
                   final service = ServiceModel.services[index];
-                  return Container(
-                    margin: const EdgeInsets.all(10),
-                    height: 30.h,
-                    width: 80.w,
-                   child: ServicesCard(
-                      title: service.serviceName,
-                      subtitle: service.serviceDescription,
-                      imageIcon:service.serviceLogo,
-                      screenType: screenType, onTap: (){}
-                  )
-                  );
+                  return MobileServicesCard(
+                     title: service.serviceName,
+                     subtitle: service.serviceDescription,
+                     imageIcon:service.serviceLogo,
+                     screenType: screenType, onTap: (){}
+                     );
                 }),
               )
           ,

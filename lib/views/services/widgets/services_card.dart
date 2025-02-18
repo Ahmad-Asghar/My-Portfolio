@@ -96,8 +96,8 @@ class _ServicesCardState extends State<ServicesCard> {
                             title: widget.subtitle,
                             color: isHovered?AppColors.backgroundColor: AppColors.white,
                             fontSize:
-                            widget.screenType==ScreenType.desktop?14:
-                            widget.screenType==ScreenType.tablet?13:12,
+                            widget.screenType==ScreenType.desktop?12:
+                            widget.screenType==ScreenType.tablet?12:12,
                             fontWeight: FontWeight.bold,
                             fontFamily: AppConstants.secondFontFamily,
                           ),
