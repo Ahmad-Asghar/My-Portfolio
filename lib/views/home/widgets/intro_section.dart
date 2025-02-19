@@ -116,6 +116,7 @@ class TabIntroSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 15.h,),
+
                     CustomTextWidget(title: 'Hey, ${getGreeting()} I am',color: AppColors.white,fontSize: 20,),
                     CustomTextWidget(
                         title: 'Ahmad\nAsghar,',

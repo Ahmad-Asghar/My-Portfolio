@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'app_routes.dart';
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 final ScrollController homeScrollController = ScrollController();
 
 final GlobalKey servicesSectionKey = GlobalKey();
