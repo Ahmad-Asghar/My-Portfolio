@@ -47,6 +47,7 @@ class LandingPage extends StatelessWidget {
             ),
           ),
           body: SingleChildScrollView(
+
             controller: homeScrollController,
             child: Column(
               children: [
