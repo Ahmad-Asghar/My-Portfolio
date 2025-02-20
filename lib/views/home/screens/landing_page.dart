@@ -7,6 +7,7 @@ import 'package:my_portfolio/views/home/widgets/tab_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../utils/image_constants.dart';
 import '../../../utils/screen_utils.dart';
+import '../../../utils/user_pref_utils.dart';
 import '../../services/screens/services_section.dart';
 import '../widgets/intro_section.dart';
 
@@ -21,9 +22,10 @@ class LandingPage extends StatelessWidget {
         return Scaffold(
           floatingActionButton: FloatingActionButton(
               backgroundColor: Colors.transparent,
-              onPressed: (){},
+              onPressed: (){
+                openWhatsApp();
+              },
             child: Image.asset(Images.whatsappFloating),
-
           ),
           backgroundColor: AppColors.backgroundColor,
           key: scaffoldKey,

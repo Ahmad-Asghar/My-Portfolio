@@ -1,6 +1,21 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'app_exports.dart';
 
+
+import 'package:url_launcher/url_launcher.dart';
+
+void openWhatsApp() async {
+  String phoneNumber = '+923203838849';
+  String url = 'https://wa.me/$phoneNumber';
+
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+
 showToast(String message){
   Fluttertoast.showToast(
     webPosition: 'center',
