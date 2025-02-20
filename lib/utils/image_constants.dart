@@ -12,6 +12,7 @@ class Images{
   static String email ='assets/images/email.png';
   static String phone ='assets/images/phone.png';
   static String whatsapp ='assets/images/whatsapp.png';
+  static String whatsappFloating ='assets/images/whatsapp_floating.png';
   static String debug ='assets/images/debug.png';
   static String launch ='assets/images/launch.png';
   static String flutterSvg ='assets/images/flutter_svg.svg';
