@@ -51,6 +51,7 @@ class SkillTile extends StatelessWidget {
                   color: skillColor.withOpacity(0.2)
                 ),
                 child: Row(
+
                   children: [
                    if(iconOnLeft) Row(
                       children: [
