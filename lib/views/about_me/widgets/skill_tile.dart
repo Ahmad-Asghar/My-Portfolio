@@ -20,6 +20,26 @@ class SkillTile extends StatelessWidget {
       child: Stack(
         alignment: iconOnLeft?Alignment.topLeft: Alignment.topRight,
         children: [
+          Container(
+            height: 25.w,
+            width: 25.w,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.backgroundColor,
+            ),
+            child: Container(
+              height: 25.w,
+              width: 25.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: skillColor.withOpacity(0.2),
+              ),
+              // child: Padding(
+              //   padding: const EdgeInsets.all(10.0),
+              //   child: SvgPicture.asset(skillIcon,height: isLast?65:100),
+              // ),
+            ),
+          ),
           Column(
             crossAxisAlignment: iconOnLeft?CrossAxisAlignment.end:CrossAxisAlignment.start,
             children: [
@@ -44,61 +64,66 @@ class SkillTile extends StatelessWidget {
               ),
               const SizedBox(height: 3),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 7.w),
-                padding:  EdgeInsets.only(left:3.w,right:3.w),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: skillColor.withOpacity(0.2)
+                    borderRadius: BorderRadius.circular(5),
+                    color: AppColors.backgroundColor
                 ),
-                child: Row(
-
-                  children: [
-                   if(iconOnLeft) Row(
-                      children: [
-                        Container(
-                          margin:EdgeInsets.only(top: 12.w),
-                          constraints: BoxConstraints(maxWidth: 7.w),
-                          child: CustomTextWidget(
-                            textAlign: TextAlign.center,
-                            height: 0.9,
-                            fontWeight: FontWeight.bold,
-                            title: "0\n$index",fontSize: 40,
-                            color: skillColor
-                          ),
-                        ),
-                         SizedBox(width: 5.w)
-                      ],
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: CustomTextWidget(
-                          textAlign: TextAlign.center,
-                            title: skillDesc,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: AppConstants.secondFontFamily,
-                            color: AppColors.white
-                        ),
-                      ),
-                    ),
-                    if(!iconOnLeft) Row(
-                      children: [
-                        SizedBox(width: 5.w),
-                        Container(
-                          margin:EdgeInsets.only(top: 12.w),
-                          constraints: BoxConstraints(maxWidth: 7.w),
-                          child: CustomTextWidget(
+                margin: EdgeInsets.symmetric(horizontal: 7.w),
+                child: Container(
+                  padding:  EdgeInsets.only(left:3.w,right:3.w),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: skillColor.withOpacity(0.2)
+                  ),
+                  child: Row(
+                    children: [
+                     if(iconOnLeft) Row(
+                        children: [
+                          Container(
+                            margin:EdgeInsets.only(top: 12.w),
+                            constraints: BoxConstraints(maxWidth: 7.w),
+                            child: CustomTextWidget(
                               textAlign: TextAlign.center,
                               height: 0.9,
                               fontWeight: FontWeight.bold,
                               title: "0\n$index",fontSize: 40,
                               color: skillColor
+                            ),
+                          ),
+                           SizedBox(width: 5.w)
+                        ],
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          child: CustomTextWidget(
+                            textAlign: TextAlign.center,
+                              title: skillDesc,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: AppConstants.secondFontFamily,
+                              color: AppColors.white
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      if(!iconOnLeft) Row(
+                        children: [
+                          SizedBox(width: 5.w),
+                          Container(
+                            margin:EdgeInsets.only(top: 12.w),
+                            constraints: BoxConstraints(maxWidth: 7.w),
+                            child: CustomTextWidget(
+                                textAlign: TextAlign.center,
+                                height: 0.9,
+                                fontWeight: FontWeight.bold,
+                                title: "0\n$index",fontSize: 40,
+                                color: skillColor
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -106,23 +131,12 @@ class SkillTile extends StatelessWidget {
           Container(
             height: 25.w,
             width: 25.w,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.backgroundColor,
-            ),
-            child: Container(
-              height: 25.w,
-              width: 25.w,
-              decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: skillColor.withOpacity(0.2),
-            ),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SvgPicture.asset(skillIcon,height: isLast?65:100),
-              ),
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: SvgPicture.asset(skillIcon,height: isLast?65:100),
             ),
           )
+
         ],
       )
     ):
