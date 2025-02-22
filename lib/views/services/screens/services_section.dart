@@ -22,7 +22,6 @@ class ServicesSection extends StatelessWidget {
       //height: screenType==ScreenType.mobile?null: 100.h,
       width: 100.w,
       child: Column(
-
         children: [
           CustomTextWidget(
             title: "Services",

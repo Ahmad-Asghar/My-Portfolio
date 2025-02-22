@@ -128,7 +128,7 @@ class SkillTile extends StatelessWidget {
               ),
             ],
           ),
-          Container(
+          SizedBox(
             height: 25.w,
             width: 25.w,
             child: Padding(
@@ -136,7 +136,6 @@ class SkillTile extends StatelessWidget {
               child: SvgPicture.asset(skillIcon,height: isLast?65:100),
             ),
           )
-
         ],
       )
     ):

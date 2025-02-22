@@ -8,6 +8,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../utils/image_constants.dart';
 import '../../../utils/screen_utils.dart';
 import '../../../utils/user_pref_utils.dart';
+import '../../projects/screens/projects_section.dart';
 import '../../services/screens/services_section.dart';
 import '../widgets/intro_section.dart';
 
@@ -44,7 +45,15 @@ class LandingPage extends StatelessWidget {
                   scrollToContainer(servicesSectionKey);
                 },showBackContainer: true),
                 const SizedBox(height: 15,),
-                TabButton(title: "Projects",screenType: customScreenType,onTap: (){},showBackContainer: true),
+                TabButton(
+                    title: "Projects",
+                    screenType: customScreenType,
+                    onTap: (){
+                      scaffoldKey.currentState?.closeEndDrawer();
+                      scrollToContainer(projectsSectionKey);
+                    },
+                    showBackContainer: true
+                ),
                 const SizedBox(height: 15,),
                 TabButton(title: "Contact",screenType: customScreenType,onTap: (){
                   scaffoldKey.currentState?.closeEndDrawer();
@@ -54,14 +63,14 @@ class LandingPage extends StatelessWidget {
             ),
           ),
           body: SingleChildScrollView(
-
             controller: homeScrollController,
             child: Column(
               children: [
                 HeroSection(screenType: customScreenType),
                 AboutMeSection(screenType: customScreenType),
                 ServicesSection(screenType: customScreenType),
-                ContactSection(screenType: customScreenType),
+                ProjectsSection(screenType: customScreenType),
+                ContactSection(screenType: customScreenType)
               ],
             ),
           ),

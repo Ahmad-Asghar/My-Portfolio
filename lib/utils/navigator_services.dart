@@ -8,7 +8,7 @@ final ScrollController homeScrollController = ScrollController();
 final GlobalKey servicesSectionKey = GlobalKey();
 final GlobalKey contactSectionKey = GlobalKey();
 final GlobalKey aboutMeSectionKey = GlobalKey();
-final GlobalKey container3Key = GlobalKey();
+final GlobalKey projectsSectionKey = GlobalKey();
 
 void scrollToContainer(GlobalKey key) {
   final context = key.currentContext;
