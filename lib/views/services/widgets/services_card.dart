@@ -91,7 +91,7 @@ class _ServicesCardState extends State<ServicesCard> {
                         const SizedBox(height: 8),
                         Expanded(
                           child: CustomTextWidget(
-                            maxLines: widget.screenType==ScreenType.mobile?null: 4,
+                           // maxLines: widget.screenType==ScreenType.mobile?null: 4,
                             textAlign: TextAlign.center,
                             title: widget.subtitle,
                             color: isHovered?AppColors.backgroundColor: AppColors.white,
