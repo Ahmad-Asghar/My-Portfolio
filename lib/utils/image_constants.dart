@@ -22,5 +22,8 @@ class Images{
   static String firebaseSvg ='assets/images/firebase_svg.svg';
   static String gitSvg ='assets/images/git_svg.svg';
   static String jiraSvg ='assets/images/jira_svg.svg';
+  static String ziggooRiderBanner ='assets/images/ziggoo_rider_banner.jpg';
+  static String ziggooPartnerBanner ='assets/images/ziggoo_partner_banner.jpg';
+  static String ziggooBanner ='assets/images/ziggoo_banner.jpg';
 
 }
